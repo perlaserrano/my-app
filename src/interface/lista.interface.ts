@@ -1,12 +1,11 @@
 
 
-interface ILista {
+interface ITask {
     date: Date
     name: string
     titulo: string
     text: string
     completado: boolean
-
 }
 
-export default ILista;
+export default ITask;

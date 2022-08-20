@@ -1,5 +1,5 @@
-import { FormEvent, useState } from "react";
-import ILista from "../interface/lista.interface";
+import { ChangeEvent, FormEvent, useState } from "react";
+import ITask from "../interface/lista.interface";
 
 const AplicacionTarea = () => {
     const initialValue = {
@@ -10,19 +10,36 @@ const AplicacionTarea = () => {
         completado: false
     }
 
-    const [listaTareas, setListaTareas] = useState<ILista[]>([{
-        date: new Date(),
-        name: 'Perla',
-        titulo: 'Tak',
-        text: 'Lo que sea.com',
-        completado: false
-    }]);
-    const [tarea, setTarea] = useState<ILista>(initialValue);
+    const [listaTareas, setListaTareas] = useState<ITask[]>([
+        {
+            date: new Date(),
+            name: 'Perla',
+            titulo: 'Tak',
+            text: 'Lo que sea.com',
+            completado: false
+        },
+        {
+            date: new Date(),
+            name: 'Perla',
+            titulo: 'Tak',
+            text: 'Lo que sea.com',
+            completado: false
+        },
+        {
+            date: new Date(),
+            name: 'Perla',
+            titulo: 'Tak',
+            text: 'Lo que sea.com',
+            completado: false
+        },
+    ]);
+    const [tarea, setTarea] = useState<ITask>(initialValue);
 
     const handlerOnChange = (e: any) => {
 
         const { name, value } = e.target;
-        setTarea((prev: ILista) => {
+
+        setTarea((prev: ITask) => {
 
             return {
                 ...prev,
@@ -34,7 +51,7 @@ const AplicacionTarea = () => {
 
     const handlerOnSubmit = (e: FormEvent) => {
         e.preventDefault();
-        setListaTareas((prev: ILista[]) => {
+        setListaTareas((prev: ITask[]) => {
             let newState = [...prev, tarea]
 
             return newState;
@@ -46,7 +63,19 @@ const AplicacionTarea = () => {
     }
 
 
+    const handleChangeCheckbox = (e: ChangeEvent<HTMLInputElement>, index: number) => {
+        const { checked } = e.target;
 
+        setListaTareas((prev: ITask[]) => {
+            let newState = [...prev]
+
+            newState[index].completado = checked;
+
+            return newState;
+        })
+
+
+    }
 
     return (
 
@@ -73,10 +102,22 @@ const AplicacionTarea = () => {
                     {
                         listaTareas.map((item, index) => {
                             return (
-                                <div>
-                                    <p>{item.name}</p>
+                               <div  key={index}>
+                                    <div className="container-checkbox">
+                                        <label htmlFor="completado-checkbox">Completado</label>
+                                        <input onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                                            handleChangeCheckbox(e, index)
+                                        }} name="completado" type="checkbox" checked={item.completado} id="completado-checkbox" />
+                                    </div>
+
+
+                                    <div>
+
                                     <p>{item.titulo}</p>
+                                    <p>{item.name}</p>
                                     <p>{item.text}</p>
+
+                                    </div>
                                 </div>
                             )
                         })

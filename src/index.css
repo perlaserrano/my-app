@@ -54,6 +54,9 @@
 }
 
 .container-tasks {
+  display: flex;
+  justify-content: space-between;
+  align-self: start;
   border: 1px solid black;
   flex: 1;
   height: 80vh;
@@ -62,7 +65,7 @@
   
 }
 .container-tasks div  {
-  border: 1px solid  blueviolet;
+  /* border: 1px solid  blueviolet; */
   margin-bottom: 15px;
   color:black;
   background-color: white;
@@ -72,4 +75,21 @@
 
   
    
+}
+
+.container-checkbox{
+display: flex;
+justify-content: space-between;
+flex-direction: row-reverse;
+padding-top: 30px;
+
+
+
+}
+
+.container-tasks div p{
+  align-content: flex-end;
+
+  
+
 }
