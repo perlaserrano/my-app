@@ -1,13 +1,75 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.main-container {
+  padding: 0 25px;
+  box-sizing: border-box;
+}
+.container-layout {
+  display: flex;
+  gap: 25px;
+  width: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container-layout form div {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-layout form {
+  width: 25%;
+}
+
+.main-container h1{
+  color: blueviolet;
+  text-align: justify;
+}
+
+
+.main-container button{
+  height: 35px;
+  width: 100%;
+  font-weight: bold;
+  font-size: 15px;
+  background-color: blueviolet;
+  border: none;
+  color: white;
+  cursor: pointer;
+  
+}
+
+.container-layout input {
+  height: 30px;
+}
+
+.container-layout textarea {
+  height: 80px;
+  padding-top: 5px
+}
+
+.container-layout input,
+.container-layout textarea{
+  margin: 0;
+  padding: 0;
+  margin-bottom: 5px;
+  outline: none;
+  padding: 0px 10px;
+}
+
+.container-tasks {
+  border: 1px solid black;
+  flex: 1;
+  height: 80vh;
+  padding: 25px;
+  
+  
+}
+.container-tasks div  {
+  border: 1px solid  blueviolet;
+  margin-bottom: 15px;
+  color:black;
+  background-color: white;
+
+  font-size: 20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+  
+   
 }
